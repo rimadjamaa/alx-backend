@@ -114,4 +114,14 @@ This project contains tasks for learning to create internationalized web pages w
   + Displaying the time in French looks like this:<br/>
     ![Hello World! with a logged in message and the current time in French](assets/task_8_1.png)
   + Displaying the time in English looks like this:<br/>
+<<<<<<< HEAD
     ![Hello World! with a logged in message and the current time in English](assets/task_8_2.png)
+=======
+    ![Hello World! with a logged in message and the current time in English](assets/task_8_2.png)# ALX Backend
+
+![Repo size](https://img.shields.io/github/repo-size/B3zaleel/alx-backend)
+![Pep8 style](https://img.shields.io/badge/PEP8-style%20guide-purple?style=round-square)
+![Latest commit](https://img.shields.io/github/last-commit/B3zaleel/alx-backend/main?style=round-square)
+
+This repo contains projects for learning backend development concepts.
+>>>>>>> 7a91fc23297a7bc6de37042ce5d6bedae4f2bb41
