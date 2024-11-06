@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""A Basic Flask app with internationalization support.
+"""A Basic Flask app with locale selector.
 """
-from flask_babel import Babel
+from flask_babel import Babel, _
 from flask import Flask, render_template, request
 
 
@@ -19,7 +19,6 @@ app.url_map.strict_slashes = False
 babel = Babel(app)
 
 
-@babel.localeselector
 def get_locale() -> str:
     """Retrieves the locale for a web page.
     """
@@ -32,6 +31,10 @@ def get_locale() -> str:
         if query_table['locale'] in app.config["LANGUAGES"]:
             return query_table['locale']
     return request.accept_languages.best_match(app.config["LANGUAGES"])
+
+
+# Manually set the locale selector function for Flask-Babel
+babel.init_app(app, locale_selector=get_locale)
 
 
 @app.route('/')
