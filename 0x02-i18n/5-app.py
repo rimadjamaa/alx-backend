@@ -25,13 +25,6 @@ users = {
     4: {"name": "Teletubby", "locale": None, "timezone": "Europe/London"},
 }
 
-@app.route('/check-params')
-def check_params() -> str:
-    """Checks and returns all query parameters as JSON."""
-    # Convert query parameters to a dictionary
-    params = request.args.to_dict()
-    # Return all parameters as JSON
-    return jsonify(params=params)
 
 def get_user() -> Union[Dict, None]:
     """Retrieves a user based on a user id.
@@ -50,6 +43,7 @@ def before_request() -> None:
     g.user = user
 
 
+@babel.localeselector
 def get_locale() -> str:
     """Retrieves the locale for a web page.
     """
@@ -58,8 +52,6 @@ def get_locale() -> str:
         return locale
     return request.accept_languages.best_match(app.config["LANGUAGES"])
 
-# Manually set the locale selector function for Flask-Babel
-babel.init_app(app, locale_selector=get_locale)
 
 @app.route('/')
 def get_index() -> str:
